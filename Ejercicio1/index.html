@@ -1,0 +1,41 @@
+
+<html >
+    <head>
+      
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>       
+   <script src="./js/script1.js"></script>
+   <!--<script>
+       var app = angular.module('app', []);
+   </script>-->
+
+    </head>
+    <body ng-app="app" data-ng-controller="AlumnosController">
+    <div >
+        
+        <div>
+            <legend>Hello word!</legend>
+            <div >
+                <input type="text" name="nombre" ng-model="name"  placeholder="Nombre">
+            </div>
+            <h1>Hello {{name}} ! </h1>
+            <h2>{{12368.99 | currency}}
+            <p>{{alumnos | json}}</p>
+          
+
+        </div>    
+    </div>
+  
+        <h1>Cuaderno Alumnos</h1>
+        <div>
+        <div ng-repeat ="alumno in alumnos | filter:name">
+            <div> {{alumno.nombre}} - {{alumno.telefono}} </div>
+            <span>{{alumno.curso}} </span>       
+
+        </div>
+        </div>
+        
+
+     
+     
+    </body>
+</html>

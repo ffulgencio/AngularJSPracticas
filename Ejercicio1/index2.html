@@ -1,0 +1,64 @@
+<!Doctype html>
+<html data-ng-app="app">
+    <head >
+        <title>Prueba</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class = "container" ng-controller="ProductosController">
+            <h1>Lista De Productos</h1>
+            
+            
+            <div class = row>
+                <div class= "form-group">
+                <div class = "col-md-3">
+             ID<br />
+                <input type="text" ng-model="id" class="form-control"><br />
+             Descripcion<br />
+                <input type="text" ng-model="descripcion" class="form-control"><br />
+             Precio<br />
+                <input type="text" ng-model="precio" class="form-control"><br />
+             Cantidad<br />
+                <input type="text" ng-model="cantidad" class="form-control"><br />
+                <button class="btn btn-success" ng-click="AgregarProducto(id,descripcion, precio, cantidad)">Agregar Producto </button>
+             <div>
+            <br /><br />
+            </div>
+            </div>
+            <div class = "row">
+                <div class = "col-md-8">
+               
+            <table class="table table-bordered "> 
+                <tr >
+                    <th>ID</th>    
+                    <th>Description</th>  
+                    <th>Precio</th> 
+                    <th>Cantidad</th>
+                    <th>Acciones</th> 
+                </tr> 
+                <tr ng-repeat="producto in productos">
+                    <td >{{producto.id}}</td>
+                    <td >{{producto.Description}}</td>
+                    <td >{{producto.precio | currency}}</td>
+                    <td >{{producto.cantidad}}</td>
+                    <td>
+                        <button class="btn btn-danger" ng-click="eliminarProducto(producto.id)">Borrar </button>
+                        <button class="btn btn-info" ng-click="editarProducto(producto.id)">Editar </button>
+                    </td>
+                </tr>   
+            </table>  
+            </div> 
+            </div> 
+
+        </div>
+        <script src = "./js/angular.min.js"></script>
+        <script src="./js/script2.js"></script>
+    </body>
+</html>
